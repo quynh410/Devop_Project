@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
         with:
@@ -17,12 +20,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_KEY }}
           script: |
-            if [ ! -d "devops-project" ]; then
-              git clone https://github.com/quynh410/Devop_Project.git
-            fi
-
-            cd devops-project
-            git pull origin main
-
+            cd devops_project/react-app
+            git pull
             docker-compose down
             docker-compose up -d --build
