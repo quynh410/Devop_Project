@@ -5,6 +5,7 @@ services:
   db:
     image: postgres:14
     container_name: postgres_db
+    restart: always
     environment:
       POSTGRES_DB: rikkei_prod
       POSTGRES_USER: postgres
@@ -15,18 +16,24 @@ services:
       - rikkei_network
 
   backend:
-    image: yourdockerhub/backend
+    image: quynh41/backend:latest
     container_name: spring_backend
     depends_on:
       - db
+    restart: always
+    ports:
+      - "8080:8080"
     networks:
       - rikkei_network
 
   frontend:
-    build: .
+    image: quynh41/frontend:latest
     container_name: react_frontend
     ports:
       - "3000:80"
+    depends_on:
+      - backend
+    restart: always
     networks:
       - rikkei_network
 
@@ -35,3 +42,4 @@ volumes:
 
 networks:
   rikkei_network:
+    driver: bridge
