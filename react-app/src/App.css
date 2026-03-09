@@ -1,0 +1,116 @@
+.app {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.25rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.85rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0.25rem 0 0;
+  color: #555;
+  font-size: 1rem;
+}
+
+.cart {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cart__count {
+  font-weight: 600;
+}
+
+.cart__total {
+  font-weight: 500;
+  color: #444;
+}
+
+.cart__clear {
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  transition: background 120ms ease, transform 120ms ease;
+}
+
+.cart__clear:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 1.5rem 0 2rem;
+}
+
+.filters button {
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(100, 110, 255, 0.4);
+  background: rgba(100, 110, 255, 0.1);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.filters button.active,
+.filters button:hover {
+  background: rgba(100, 110, 255, 0.2);
+  border-color: rgba(100, 110, 255, 0.6);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.empty {
+  margin: 0;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #555;
+}
+
+.footer {
+  margin-top: 3rem;
+  text-align: center;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.footer code {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+}
+
+@media (prefers-color-scheme: light) {
+  .app {
+    color: #1b1f2c;
+  }
+  .cart__clear {
+    background: rgba(240, 240, 255, 0.75);
+  }
+}
