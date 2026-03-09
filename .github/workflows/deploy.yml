@@ -16,7 +16,7 @@ jobs:
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
         with:
-          host: 15.168.189.56
+          host: 3.34.129.103
           username: ubuntu
           key: ${{ secrets.SSH_KEY }}
           script: |
